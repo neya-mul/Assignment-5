@@ -33,7 +33,7 @@
 
 <body class="bg-[#F8FAFC]">
     <!-- login page here -->
-    <section class="login-page  max-w-[540px] mx-auto bg-white shadow-xl py-3 my-2" id="login-page">
+    <section class="login-page  hidden max-w-[540px] mx-auto bg-white shadow-xl py-3 my-2" id="login-page">
         <!-- image and others -->
         <div class="img-and-text text-center ">
             <img src="./assets/github-logo.png" alt="" class="mx-auto my-3">
@@ -62,7 +62,7 @@
 
 
         <!-- navbar -->
-        <nav class="bg-white p-3  shadow md:flex justify-between mb-[100px]">
+        <nav class="bg-white p-3 shadow md:flex justify-between mb-[100px]">
             <div class="md:flex gap-1 items-center">
                 <img src="./assets/github-logo.png" alt="" class="w-10 mx-auto">
                 <p class="text-2xl text-center">GitHub Issues Tracker</p>
@@ -108,9 +108,13 @@
         <!-- all cards -->
         <div id="cards-container" class="max-w-[1400px] bg-gray-100 mx-auto p-5 grid md:grid-cols-4 gap-2">
 
-           
-          
-        </div>
+      </div>
+<!-- spinner -->
+            <div class=" text-center hidden flex justify-center items-center" id="spinner">
+                <span class="loading loading-spinner loading-xl"></span>
+
+            </div>
+
 
 
 
