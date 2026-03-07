@@ -7,8 +7,8 @@ let searchInput = document.getElementById('search-input')
 let searchbBtn = document.getElementById('search-btn')
 let cardsContaier = document.getElementById('cards-container');
 let issueCount = document.getElementById('issue-count')
-// console.log(issueCount.innerText);
-// console.log(cardsContaier.children.length)
+
+
 
 
 
@@ -40,10 +40,10 @@ const displayData = (allData) => {
 
     allData.forEach(element => {
         let lbl = ''
-        element.labels.forEach(label=>{
+        element.labels.forEach(label => {
             lbl += `<span class="bg-amber-50 p-1">${label}</span>`
         })
-        
+
         let card = document.createElement('div')
         card.className = "card max-w-[400px] space-y-3 p-3 bg-white "
         card.innerHTML = `
@@ -59,8 +59,11 @@ const displayData = (allData) => {
                  <p>${element.createdAt}</p>
     
     `
-    // min-h-4
-    cardsContaier.appendChild(card)
+        // min-h-4
+
+        // issueCount.innerText = element.data.length
+        cardsContaier.appendChild(card)
+       issueCount.innerText = cardsContaier.children.length
 
     });
 }
