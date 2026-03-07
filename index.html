@@ -12,6 +12,13 @@
     <!-- tailwind and daisyUI link-->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <title>GitHub Issue Tracker</title>
     <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
 
@@ -26,7 +33,7 @@
 
 <body class="bg-[#F8FAFC]">
     <!-- login page here -->
-    <section class="login-page max-w-[540px] mx-auto bg-white shadow-xl py-3">
+    <section class="login-page max-w-[540px] mx-auto bg-white shadow-xl py-3 my-2" id="login-page">
         <!-- image and others -->
         <div class="img-and-text text-center ">
             <img src="./assets/github-logo.png" alt="" class="mx-auto my-3">
@@ -37,21 +44,37 @@
         <!-- login form -->
         <div class="p-4 ">
             <fieldset class="fieldset bg-white border-base-100 mx-auto rounded-box w-full border p-4">
-             
-
                 <label class="label">Username</label>
-                <input type="text" class="input w-full" placeholder="Enter Username" id="username"/>
+                <input type="text" class="input w-full" placeholder="Enter Username" id="username" />
 
                 <label class="label">Password</label>
-                <input type="password" class="input w-full" placeholder="Enrter password" id="password"/>
+                <input type="password" class="input w-full" placeholder="Enrter password" id="password" />
 
-                <button class="btn btn-primary mt-4">Sign in</button>
+                <button class="btn btn-primary mt-4" id="login-btn">Sign in</button>
             </fieldset>
         </div>
     </section>
 
+    <!-- all cards section -->
+    <section class=" max-w-[1600px] mx-auto" id="all-elements">
+        <!-- navbar -->
+        <nav class="bg-white p-3  shadow flex justify-between">
+            <div class="flex gap-1 items-center">
+                <img src="./assets/github-logo.png" alt="" class="w-10">
+                <p class="text-2xl">GitHub Issues Tracker</p>
+            </div>
+
+            <div>
+                <input type="text" placeholder="Search Issues..." class="border border-gray-200 p-1.5">
+                <button class="btn btn-primary">Search</button>
+            </div>
+
+        </nav>
+
+    </section>
 
 
+    <script src="./script.js"></script>
 </body>
 
 </html>
