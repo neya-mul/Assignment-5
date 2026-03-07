@@ -81,3 +81,23 @@ const showSpinner = () => {
 const hideSpinner = () => {
     spinner.classList.add('hidden')
 }
+
+
+
+// function for load open data
+const loadOpenData = () => {
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+        .then(res => res.json())
+        .then(data => displayOpenData(data.data))
+}
+loadOpenData()
+
+// function for display open data
+const displayOpenData = (data) => {
+    data.forEach(e => {
+        if (e.status === 'open') {
+            console.log(e);
+
+        }
+    });
+}
