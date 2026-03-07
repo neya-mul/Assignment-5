@@ -62,7 +62,7 @@
 
 
         <!-- navbar -->
-        <nav class="bg-white p-3  shadow md:flex justify-between">
+        <nav class="bg-white p-3  shadow md:flex justify-between mb-[100px]">
             <div class="md:flex gap-1 items-center">
                 <img src="./assets/github-logo.png" alt="" class="w-10 mx-auto">
                 <p class="text-2xl text-center">GitHub Issues Tracker</p>
@@ -79,16 +79,40 @@
 
 
         <!-- all button section -->
-        <div class="bg-white my-3 md:flex gap-3 text-center md:text-left p-3" id="all-buttons">
+        <div class="bg-white my-3 md:flex gap-3 text-center md:text-left p-3 max-w-[1400px] mx-auto" id="all-buttons">
             <button class="btn btn-primary px-4 py-2">All</button>
             <button class="btn px-4 py-2">Open</button>
             <button class="btn px-4 py-2">Close</button>
         </div>
 
-<!--  -->
-        <div>
+        <!-- issue count section -->
+        <div class="bg-white max-w-[1400px] mx-auto p-3 flex flex-col md:flex-row justify-between items-center gap-4">
+            <!-- image and others -->
+            <div class="flex flex-col  md:flex-row text-center md:text-left items-center gap-2">
+                <img src="./assets/Aperture.png" alt="">
+                <div>
+                    <h1 class="font-bold">50 Issues</h1>
+                    <p>Track and manage your project issues</p>
+                </div>
+            </div>
+
+            <div>
+                <i class="fa-solid fa-circle text-green-500"></i>
+                <span>Open</span>
+                <i class="fa-solid fa-circle text-purple-600"></i>
+                <span>Closed</span>
+            </div>
 
         </div>
+
+        <!-- all cards -->
+        <div id="cards-container" class="max-w-[1400px] bg-gray-100 mx-auto p-5 grid md:grid-cols-4 gap-2">
+
+           
+          
+        </div>
+
+
 
     </section>
 
