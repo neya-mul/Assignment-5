@@ -4,8 +4,6 @@ let loginBtn = document.getElementById('login-btn')
 let loginPage = document.getElementById('login-page')
 let allElements = document.getElementById('all-elements')
 let searchInput = document.getElementById('search-input')
-
-
 let searchBtn = document.getElementById('search-btn')
 let cardsContaier = document.getElementById('cards-container');
 let issueCount = document.getElementById('issue-count')
@@ -13,8 +11,23 @@ let spinner = document.getElementById('spinner')
 let allData = document.getElementById('all-data')
 let openData = document.getElementById('open-data')
 let closeData = document.getElementById('close-data')
+let modal = document.getElementById('modal')
 
-      
+
+let heading  = document.getElementById('heading');
+let sts  = document.getElementById('status');
+let open  = document.getElementById('open');
+let date  = document.getElementById('date');
+let bug  = document.getElementById('bug');
+let help  = document.getElementById('help');
+let para  = document.getElementById('para');
+let assign  = document.getElementById('assign');
+let name  = document.getElementById('name');
+let priority  = document.getElementById('priority');
+let quality  = document.getElementById('quality');
+
+
+
 
 
 
@@ -38,6 +51,7 @@ const loadData = () => {
         .then(res => res.json())
         .then(data => {
             displayData(data.data)
+            //    displayModal(data.data)
             spinner.classList.add('hidden')
         })
 
@@ -57,8 +71,9 @@ const displayData = (data) => {
 
         let card = document.createElement('div')
         card.className = "card max-w-[400px] space-y-3 p-3 bg-white "
+        card.onclick = () => openModal(element.title)
         card.innerHTML = `
-     <p class="text-right">${element.priority}</p>
+     <p class="text-right">${element.priority}</p> 
                 <h1 class="text-2xl min-h-[70px]">${element.title}</h1>
                <p class="line-clamp-2">${element.description}</p>
                <div class="flex gap-2 ">
@@ -146,7 +161,7 @@ const displayClosedData = (data) => {
 
     });
 
-      
+
 }
 
 
@@ -215,19 +230,57 @@ closeData.addEventListener('click', function () {
 
 
 
- searchBtn.addEventListener('click', function(){
-            let searchInputValue = searchInput.value.trim().toLowerCase()
-            fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
-            .then(res=> res.json())
-            .then(data=>  {
-                let allWords = data.data;
-                filterCards = allWords.filter((word)=>
+searchBtn.addEventListener('click', function () {
+    let searchInputValue = searchInput.value.trim().toLowerCase()
+    fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+        .then(res => res.json())
+        .then(data => {
+            let allWords = data.data;
+            filterCards = allWords.filter((word) =>
                 word.title.toLowerCase().includes(searchInputValue))
-                displayData(filterCards)
+            displayData(filterCards)
+
+        }
+        )
+
+})
+
+
+
+const openModal = (title) => {
+    // console.log(title)
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${title}`)
+        .then(res => res.json())
+        .then(data => {
+
+            data.data.forEach(element => {
+                // console.log(element.id)
+                heading.textContent = element.title
+                sts.innerText = element.status
+                open.textContent = element.author
+                date.textContent = element.createdAt
+                // bug.textContent = element.labels
+                // help.textContent = element.
+                para.textContent = element.description
                 
-            }
-            )
-            
-        }) 
+
+            });
+
+        })
+    modal.showModal()
+
+    
+}
 
 
+// let heading  = document.getElementById('heading');
+// let status  = document.getElementById('status');
+// let open  = document.getElementById('open');
+// let data  = document.getElementById('date');
+// let bug  = document.getElementById('bug');
+// let help  = document.getElementById('help');
+// let para  = document.getElementById('para');
+// let assign  = document.getElementById('assign');
+// let name  = document.getElementById('name');
+// let priority  = document.getElementById('priority');
+// let quality  = document.getElementById('quality');
