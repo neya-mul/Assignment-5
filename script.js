@@ -14,17 +14,17 @@ let closeData = document.getElementById('close-data')
 let modal = document.getElementById('modal')
 
 
-let heading  = document.getElementById('heading');
-let sts  = document.getElementById('status');
-let open  = document.getElementById('open');
-let date  = document.getElementById('date');
-let bug  = document.getElementById('bug');
-let help  = document.getElementById('help');
-let para  = document.getElementById('para');
-let assign  = document.getElementById('assign');
-let name  = document.getElementById('name');
-let priority  = document.getElementById('priority');
-let quality  = document.getElementById('quality');
+let heading = document.getElementById('heading');
+let sts = document.getElementById('status');
+let open = document.getElementById('open');
+let date = document.getElementById('date');
+let bug = document.getElementById('bug');
+let help = document.getElementById('help');
+let para = document.getElementById('para');
+let assign = document.getElementById('assign');
+let names = document.getElementById('name');
+let priority = document.getElementById('priority');
+let quality = document.getElementById('quality');
 
 
 
@@ -80,7 +80,7 @@ const displayData = (data) => {
                    
                 ${lbl}
                </div>
-                <hr>
+                <hr class="text-gray-200">
                  <p>${element.author}</p>
                  <p>${element.createdAt}</p>
     
@@ -254,22 +254,28 @@ const openModal = (title) => {
         .then(data => {
 
             data.data.forEach(element => {
+                let lbl = ''
+                element.labels.forEach(label => {
+                    lbl += `<span class=" p-1 mx-3">${label}</span>`
+                })
                 // console.log(element.id)
                 heading.textContent = element.title
                 sts.innerText = element.status
                 open.textContent = element.author
                 date.textContent = element.createdAt
-                // bug.textContent = element.labels
+                bug.innerHTML = lbl
                 // help.textContent = element.
                 para.textContent = element.description
-                
+                names.textContent = element.assignee
+                quality.textContent = element.priority
+
 
             });
 
         })
     modal.showModal()
 
-    
+
 }
 
 
