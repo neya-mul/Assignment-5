@@ -179,8 +179,12 @@ const displayOpenData = (data) => {
     })
 }
 
-allData.addEventListener('click', function(){
+allData.addEventListener('click', function () {
     loadData()
+    openData.classList.remove('btn-primary')
+    allData.classList.add('btn-primary')
+    closeData.classList.remove('btn-primary')
+
 })
 
 document.getElementById('open-data').addEventListener('click', function () {
@@ -191,9 +195,9 @@ document.getElementById('open-data').addEventListener('click', function () {
 })
 
 
-closeData.addEventListener('click', function(){
+closeData.addEventListener('click', function () {
     loadClosedData()
-     openData.classList.remove('btn-primary')
+    openData.classList.remove('btn-primary')
     allData.classList.remove('btn-primary')
     closeData.classList.add('btn-primary')
 
