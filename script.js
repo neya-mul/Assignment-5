@@ -4,7 +4,9 @@ let loginBtn = document.getElementById('login-btn')
 let loginPage = document.getElementById('login-page')
 let allElements = document.getElementById('all-elements')
 let searchInput = document.getElementById('search-input')
-let searchbBtn = document.getElementById('search-btn')
+
+
+let searchBtn = document.getElementById('search-btn')
 let cardsContaier = document.getElementById('cards-container');
 let issueCount = document.getElementById('issue-count')
 let spinner = document.getElementById('spinner')
@@ -12,6 +14,7 @@ let allData = document.getElementById('all-data')
 let openData = document.getElementById('open-data')
 let closeData = document.getElementById('close-data')
 
+      
 
 
 
@@ -43,10 +46,10 @@ loadData()
 
 
 // function for display all data
-const displayData = (allData) => {
+const displayData = (data) => {
 
     cardsContaier.innerHTML = ''
-    allData.forEach(element => {
+    data.forEach(element => {
         let lbl = ''
         element.labels.forEach(label => {
             lbl += `<span class="bg-amber-50 p-1">${label}</span>`
@@ -78,7 +81,11 @@ const displayData = (allData) => {
         issueCount.innerText = cardsContaier.children.length
 
 
+
+
     });
+
+
 }
 
 
@@ -136,7 +143,10 @@ const displayClosedData = (data) => {
             }
 
         }
+
     });
+
+      
 }
 
 
@@ -202,3 +212,22 @@ closeData.addEventListener('click', function () {
     closeData.classList.add('btn-primary')
 
 })
+
+
+
+ searchBtn.addEventListener('click', function(){
+            let searchInputValue = searchInput.value.trim().toLowerCase()
+            fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
+            .then(res=> res.json())
+            .then(data=>  {
+                let allWords = data.data;
+                filterCards = allWords.filter((word)=>
+                word.title.toLowerCase().includes(searchInputValue))
+                displayData(filterCards)
+                
+            }
+            )
+            
+        }) 
+
+
