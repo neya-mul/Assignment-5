@@ -16,6 +16,19 @@ map() creates a new array by transforming every single element of an array.
 
 filter() creates a new array with those elements which are passed by a condition.
 
-filter() loops through an array but doesn't return a new array
+filter() loops through an array but doesn't return a new array.
+
+
+
+
+Answer-4:
+Arrow function is the shorter way to write a function using the => syntax.It was introduced in ES6 to make functions more easier to write.
+
+
+
+
+Answer-5:
+Template literals ara a feature in js to create string.  We use `` sign to write string.In this method we can use variables value in a string.We can also breake a line anytime and anywhere if we use this.
+
 
 
