@@ -73,7 +73,7 @@ const displayData = (data) => {
         card.className = "card max-w-[400px] space-y-3 p-3 bg-white "
         card.onclick = () => openModal(element.title)
         card.innerHTML = `
-     <p class="text-right">${element.priority}</p> 
+     <p class="text-right" id="p">${element.priority}</p> 
                 <h1 class="text-2xl min-h-[70px]">${element.title}</h1>
                <p class="line-clamp-2">${element.description}</p>
                <div class="flex gap-2 ">
@@ -85,9 +85,10 @@ const displayData = (data) => {
                  <p>${element.createdAt}</p>
     
     `
+        
         if (element.status === 'open') {
-            card.classList.add('border-t-2', 'border-t-green-600')
-        }
+                card.classList.add('border-t-2', 'border-t-green-600')
+            }
         if (element.status === 'closed') {
             card.classList.add('border-t-2', 'border-t-purple-600')
         }
@@ -268,9 +269,20 @@ const openModal = (title) => {
                 para.textContent = element.description
                 names.textContent = element.assignee
                 quality.textContent = element.priority
-
-
             });
+
+            quality.className = ''
+
+            if (quality.innerText === 'high') {
+                quality.classList.add('bg-red-300', 'p-1', 'rounded-xl')
+            }
+            if (quality.innerText === 'medium') {
+                quality.classList.add('bg-green-300', 'p-1', 'rounded-xl')
+
+            }
+            if (quality.innerText === 'low') {
+                quality.classList.add('bg-gray-300', 'p-1', 'rounded-xl')
+            }
 
         })
     modal.showModal()
