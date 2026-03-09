@@ -39,6 +39,9 @@ loginBtn.addEventListener('click', function () {
         loginPage.classList.add('hidden')
         allElements.classList.remove('hidden')
     }
+    else{
+        alert('Invalid Username/password')
+    }
 })
 
 
@@ -250,12 +253,16 @@ searchBtn.addEventListener('click', function () {
 
 
 const openModal = (title) => {
-    // console.log(title)
-    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${title}`)
+    console.log(title)
+    let url = (`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${title}`)
+    // console.log(url)
+    fetch(url)
         .then(res => res.json())
         .then(data => {
-
+          
             data.data.forEach(element => {
+            
+                
                 let lbl = ''
                 element.labels.forEach(label => {
                     lbl += `<span class=" p-1 mx-3">${label}</span>`
