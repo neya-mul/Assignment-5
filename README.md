@@ -15,7 +15,7 @@ Answer-3:
 map() creates a new array by transforming every single element of an array.
 
 filter() creates a new array with those elements which are passed by a condition.
-
+ 
 filter() loops through an array but doesn't return a new array.
 
 

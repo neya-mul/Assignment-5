@@ -134,6 +134,7 @@ const displayClosedData = (data) => {
             })
 
             let card = document.createElement('div')
+            card.onclick = () => openModal(element.title)
             card.className = "card max-w-[400px] space-y-3 p-3 bg-white "
             card.innerHTML = `
      <p class="text-right">${element.priority}</p>
@@ -177,6 +178,7 @@ const displayOpenData = (data) => {
             })
 
             let card = document.createElement('div')
+            card.onclick = () => openModal(element.title)
             card.className = "card max-w-[400px] space-y-3 p-3 bg-white "
             card.innerHTML = `
      <p class="text-right">${element.priority}</p>
@@ -246,7 +248,6 @@ searchBtn.addEventListener('click', function () {
 })
 
 
-
 const openModal = (title) => {
     // console.log(title)
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${title}`)
@@ -264,7 +265,6 @@ const openModal = (title) => {
                 open.textContent = element.author
                 date.textContent = element.createdAt
                 bug.innerHTML = lbl
-                // help.textContent = element.
                 para.textContent = element.description
                 names.textContent = element.assignee
                 quality.textContent = element.priority
@@ -277,16 +277,3 @@ const openModal = (title) => {
 
 
 }
-
-
-// let heading  = document.getElementById('heading');
-// let status  = document.getElementById('status');
-// let open  = document.getElementById('open');
-// let data  = document.getElementById('date');
-// let bug  = document.getElementById('bug');
-// let help  = document.getElementById('help');
-// let para  = document.getElementById('para');
-// let assign  = document.getElementById('assign');
-// let name  = document.getElementById('name');
-// let priority  = document.getElementById('priority');
-// let quality  = document.getElementById('quality');
