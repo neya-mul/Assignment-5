@@ -39,9 +39,6 @@ loginBtn.addEventListener('click', function () {
         loginPage.classList.add('hidden')
         allElements.classList.remove('hidden')
     }
-    else{
-        alert('Invalid Username/password')
-    }
 })
 
 
