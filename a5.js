@@ -39,6 +39,9 @@ loginBtn.addEventListener('click', function () {
         loginPage.classList.add('hidden')
         allElements.classList.remove('hidden')
     }
+    else {
+        alert('Invalid Information')
+    }
 })
 
 
@@ -85,10 +88,10 @@ const displayData = (data) => {
                  <p>${element.createdAt}</p>
     
     `
-        
+
         if (element.status === 'open') {
-                card.classList.add('border-t-2', 'border-t-green-600')
-            }
+            card.classList.add('border-t-2', 'border-t-green-600')
+        }
         if (element.status === 'closed') {
             card.classList.add('border-t-2', 'border-t-purple-600')
         }
@@ -256,10 +259,10 @@ const openModal = (title) => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-          
+
             data.data.forEach(element => {
-            
-                
+
+
                 let lbl = ''
                 element.labels.forEach(label => {
                     lbl += `<span class=" p-1 mx-3">${label}</span>`
